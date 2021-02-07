@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ColGroup from './ColGroup';
 
+import { columnsProps } from './ColGroup';
+
 const TableHead = ({ columns, width, fixed }) => {
 
   return (<div className="table-head">
@@ -16,18 +18,12 @@ const TableHead = ({ columns, width, fixed }) => {
   </div>)
 };
 
-export const columnsProps = PropTypes.arrayOf(
-  PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    index: PropTypes.string.isRequired,
-    width: PropTypes.string.isRequired,
-    fixed: PropTypes.bool,
-  })
-).isRequired;
 
 TableHead.propTypes = {
   columns: columnsProps,
   fixed: PropTypes.bool,
 };
+
+export { columnsProps };
 
 export default TableHead;

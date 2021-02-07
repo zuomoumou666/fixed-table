@@ -26,7 +26,7 @@ const columns = [
     width: '200',
   },
 ]
-const getData = page => fetch(`https://reqres.in/api/users?page=${page}`, { method: 'get' })
+const getData = page => fetch(`https://reqres.in/api/users?page=${page}&per_page=5`, { method: 'get' })
   .then(res => res.json());
 function App() {
   const [data, updateData] = useState([]);
