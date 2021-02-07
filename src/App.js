@@ -42,9 +42,12 @@ function App() {
   const goTo = useCallback((p) => {
     updatePage(p);
   }, []);
+  const onClickRow = useCallback((p) => {
+    console.log("🚀 ~ file: App.js ~ line 46 ~ onClickRow ~ p", p)
+  }, []);
   return (
     <div className="App">
-      <Table data={data} columns={columns} />
+      <Table data={data} columns={columns} onClickRow={onClickRow} />
       {total ? (<Pagination totalPages={total} page={page} goTo={goTo} />) : null}
     </div>
   );

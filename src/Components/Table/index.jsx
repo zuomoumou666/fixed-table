@@ -1,10 +1,11 @@
 import React, { useRef, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import TableHead, { columnsProps } from './TableHead';
 import TableBody, { dataProps } from './TableBody';
 import useSyncScroll from '../../Hooks/useSyncScroll';
 import './index.css';
 
-const Table = ({ columns, data }) => {
+const Table = ({ columns, data, onClickRow }) => {
   const refFixed = useRef(null);
   const refRest = useRef(null);
   const refsRef = useRef([refFixed, refRest]);
@@ -27,12 +28,12 @@ const Table = ({ columns, data }) => {
   return (<div className="container" >
     <div className="fixed-table table" style={{ width: `${fixedTable.width}px` }}>
       <TableHead  {...{ ...fixedTable, fixed: true }} ></TableHead>
-      <TableBody {...{ data, ...fixedTable }} ref={refFixed}></TableBody>
+      <TableBody {...{ data, ...fixedTable, onClickRow }} ref={refFixed}></TableBody>
     </div>
     <div className="rest-table table" style={{ width: `${restTable.width}px` }}>
       <div className="flipped">
         <TableHead  {...{ ...restTable }} ></TableHead>
-        <TableBody {...{ data, ...restTable }} ref={refRest}></TableBody>
+        <TableBody {...{ data, ...restTable, onClickRow }} ref={refRest}></TableBody>
       </div>
     </div>
   </div>)
@@ -41,6 +42,7 @@ const Table = ({ columns, data }) => {
 Table.propTypes = {
   data: dataProps,
   columns: columnsProps,
+  onClickRow: PropTypes.func,
 };
 
 export default Table;

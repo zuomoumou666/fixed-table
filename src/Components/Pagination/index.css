@@ -1,0 +1,15 @@
+.pagination {
+  margin: 4px auto;
+  text-align: center;
+}
+
+.page-btn {
+  color: #66b2ff;
+  display: inline-block;
+  margin: 6px;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  color: black;
+}

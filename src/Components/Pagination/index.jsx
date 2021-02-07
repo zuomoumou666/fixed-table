@@ -1,6 +1,6 @@
 import React, { useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
-
+import './index.css';
 
 const Page = ({ curPage, page, onClick }) => {
   return <p key={page} onClick={e => onClick(page)} className={`page-btn ${curPage === page ? 'active' : ''}`}>{page}</p>

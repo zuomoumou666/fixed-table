@@ -3,3 +3,7 @@
   height: 120px;
   margin: 100px auto;
 }
+
+.cursor {
+  cursor: pointer;
+}
