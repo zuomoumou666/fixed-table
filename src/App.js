@@ -1,23 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import Table from './Components/Table';
+const data = new Array(10).fill(null).map((a, i) => ({
+  id: i,
+  givenName: `hi ${i}`,
+  familyName: 'z',
+  email: 'aaa@aaa.com',
+}));
 
+const columns = [
+  {
+    title: 'ID',
+    index: 'id',
+    width: '50',
+  },
+  {
+    title: 'Given Name',
+    index: 'givenName',
+    width: '100',
+  },
+  {
+    title: 'Family Name',
+    index: 'familyName',
+    width: '100',
+  },
+  {
+    title: 'aaa@aaa.com',
+    index: 'email',
+    width: '120',
+  },
+]
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Table data={data} columns={columns} />
     </div>
   );
 }
