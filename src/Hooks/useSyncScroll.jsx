@@ -14,7 +14,7 @@ function syncScroll(target, others, TopLeft, WidthHeight) {
   });
 }
 
-function syncHorizontalScroll(target, others) {
+function syncVerticalScroll(target, others) {
   syncScroll(target, others, "Top", "Height");
 }
 
@@ -27,7 +27,7 @@ function useSyncScroll(refsRef) {
 
       const others = refsRef.current.filter(ref => ref !== target);
 
-      syncHorizontalScroll(target, others);
+      syncVerticalScroll(target, others);
     }
 
     const elements = refsRef.current || [];

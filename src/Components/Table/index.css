@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .container {
@@ -40,6 +41,10 @@
   margin-left: -15px;
 }
 
+.flipped {
+  height: 100%;
+}
+
 .flipped,
 .table {
   display: flex;
@@ -60,6 +65,19 @@
   flex-grow: 0;
 }
 
+.table-head-row {
+  background-color: #505050;
+  color: #ffffff;
+}
+
+.table-body-row {
+  color: #00994d;
+}
+
+.table-body-row:nth-child(2n) {
+  background-color: #f0f0f0;
+}
+
 .table-body {
   flex-grow: 1;
   overflow-y: scroll;
@@ -75,4 +93,21 @@
 .table-body-col,
 .table-head-col {
   border: 1px solid #ccc;
+  line-height: 28px;
+}
+
+.pagination{
+  margin: 4px auto;
+  text-align: center;
+}
+
+.page-btn {
+  color: #66b2ff;
+  display: inline-block;
+  margin: 6px;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  color: black;
 }

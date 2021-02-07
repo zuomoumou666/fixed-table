@@ -30,7 +30,7 @@ const Table = ({ columns, data }) => {
       <TableBody {...{ data, ...fixedTable }} ref={refFixed}></TableBody>
     </div>
     <div className="rest-table table" style={{ width: `${restTable.width}px` }}>
-      <div className="flipped" style={{ height: '100%' }}>
+      <div className="flipped">
         <TableHead  {...{ ...restTable }} ></TableHead>
         <TableBody {...{ data, ...restTable }} ref={refRest}></TableBody>
       </div>
