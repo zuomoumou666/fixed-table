@@ -1,11 +1,11 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ColGroup from './ColGroup';
 
-const TableHead = forwardRef(({ columns, width }, ref) => {
+const TableHead = ({ columns, width, fixed }) => {
 
   return (<div className="table-head">
-    <table className="table" style={{ width: `${width}px` }} ref={ref}>
+    <table style={{ width: `${fixed ? width - 15 : width}px` }} >
       <ColGroup columns={columns} />
       <tbody>
         <tr className="table-head-row" >
@@ -14,7 +14,7 @@ const TableHead = forwardRef(({ columns, width }, ref) => {
       </tbody>
     </table>
   </div>)
-});
+};
 
 export const columnsProps = PropTypes.arrayOf(
   PropTypes.shape({
@@ -27,6 +27,7 @@ export const columnsProps = PropTypes.arrayOf(
 
 TableHead.propTypes = {
   columns: columnsProps,
+  fixed: PropTypes.bool,
 };
 
 export default TableHead;

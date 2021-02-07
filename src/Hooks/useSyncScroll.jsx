@@ -15,7 +15,7 @@ function syncScroll(target, others, TopLeft, WidthHeight) {
 }
 
 function syncHorizontalScroll(target, others) {
-  syncScroll(target, others, "Left", "Width");
+  syncScroll(target, others, "Top", "Height");
 }
 
 function useSyncScroll(refsRef) {

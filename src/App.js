@@ -11,7 +11,8 @@ const columns = [
   {
     title: 'ID',
     index: 'id',
-    width: '50',
+    width: '80',
+    fixed: true,
   },
   {
     title: 'Given Name',
@@ -24,7 +25,7 @@ const columns = [
     width: '100',
   },
   {
-    title: 'aaa@aaa.com',
+    title: 'Email',
     index: 'email',
     width: '120',
   },

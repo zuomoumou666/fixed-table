@@ -1,4 +1,4 @@
-import React, { useMemo, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { columnsProps } from './TableHead';
 import ColGroup from './ColGroup';
@@ -11,10 +11,10 @@ const Row = ({ item, columns }) => {
 };
 
 const TableBody = forwardRef(({ data, columns, width }, ref) => {
-  return (<div className="table-body" style={{ width: `${width}px` }} >
-    <table className="table" ref={ref} >
+  return (<div className="table-body" style={{ width: `${width}px` }} ref={ref} >
+    <table>
       <ColGroup columns={columns} />
-      <tbody className="table-body" >
+      <tbody>
         {data.map((d, i) => (<Row item={d} columns={columns} key={i} width={width}></Row>))}
       </tbody>
     </table>
