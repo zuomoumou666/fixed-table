@@ -1,13 +1,18 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import ColGroup from './ColGroup';
 
-const TableHead = forwardRef(({ columns, refHead }, ref) => {
+const TableHead = forwardRef(({ columns, width }, ref) => {
 
   return (<div className="table-head">
-    <div className="table-head-row" ref={ref} >
-      {columns.map(col => (<div className="table-head-col" key={col.index} style={{ flexBasis: `${col.width}px` }}>{col.title}</div>))}
-    </div>
-    <div className="gutter"></div>
+    <table className="table" style={{ width: `${width}px` }} ref={ref}>
+      <ColGroup columns={columns} />
+      <tbody>
+        <tr className="table-head-row" >
+          {columns.map(col => (<td className="table-head-col" key={col.index}>{col.title}</td>))}
+        </tr>
+      </tbody>
+    </table>
   </div>)
 });
 

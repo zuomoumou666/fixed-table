@@ -1,18 +1,23 @@
 import React, { useMemo, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { columnsProps } from './TableHead';
+import ColGroup from './ColGroup';
 
-const Row = ({ item, columns, width }) => {
+const Row = ({ item, columns }) => {
   return (
-    <div className="table-body-row" style={{ width: `${width}px` }}>
-      {columns.map(c => (<div className="table-body-col" style={{ flexBasis: `${c.width}px` }} key={c.index}>{item[c.index]}</div>))}
-    </div>)
+    <tr className="table-body-row">
+      {columns.map(c => (<td className="table-body-col" key={c.index}>{item[c.index]}</td>))}
+    </tr>)
 };
 
-const TableBody = forwardRef(({ data, columns }, ref) => {
-  const width = useMemo(() => (columns.reduce((p, c) => p + Number(c.width), 0)), [columns]);
-  return (<div className="table-body" ref={ref} >
-    {data.map((d, i) => (<Row item={d} columns={columns} key={i} width={width}></Row>))}
+const TableBody = forwardRef(({ data, columns, width }, ref) => {
+  return (<div className="table-body" style={{ width: `${width}px` }} >
+    <table className="table" ref={ref} >
+      <ColGroup columns={columns} />
+      <tbody className="table-body" >
+        {data.map((d, i) => (<Row item={d} columns={columns} key={i} width={width}></Row>))}
+      </tbody>
+    </table>
   </div>)
 });
 
