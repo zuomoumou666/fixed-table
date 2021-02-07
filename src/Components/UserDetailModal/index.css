@@ -1,0 +1,43 @@
+.modal {
+  width: 300px;
+  height: 400px;
+  display: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  overflow: hidden;
+  position: fixed;
+  margin: auto;
+}
+
+.modal-active {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal h4 {
+  background-color: #ccc;
+  margin: 0;
+  padding: 10px;
+}
+
+.modal-footer,
+.modal-header {
+  flex: 0;
+}
+
+.modal-body {
+  flex: 1 auto;
+  color: #00994d;
+  padding: 10px;
+}
+
+.modal-body span {
+  color: black;
+}
+
+.modal-footer button {
+  width: 80px;
+  height: 30px;
+  margin: 10px;
+}
